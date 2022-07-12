@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="./mystyle.css">
+    <title>JS-Buổi 3</title>
+</head>
+
+<body>
+    <!-- Demo header-->
+    <section class="py-5 header">
+        <div class="container py-4">
+            <header class="text-center mb-5 pb-5 text-dark">
+                <h1 class="display-4 font-weight-bold">BÀI TẬP JS BUỔI 5 - TRẦN HOÀNG NHU</h1>
+            </header>
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- Tabs nav -->
+                    <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
+                        aria-orientation="vertical">
+                        <a class="nav-link mb-3 p-3 shadow active" id="v-pills-ts-tab" data-toggle="pill"
+                            href="#baitap1" role="tab" aria-controls="v-pills-ts" aria-selected="true">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 1</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-electric-tab" data-toggle="pill" href="#baitap2"
+                            role="tab" aria-controls="v-pills-electric" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 2</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-tax-tab" data-toggle="pill" href="#baitap3"
+                            role="tab" aria-controls="v-pills-tax" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 3</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-cable-tab" data-toggle="pill" href="#baitap4"
+                            role="tab" aria-controls="v-pills-cable" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 4</span></a>
+                        <!-- <a class="nav-link mb-3 p-3 shadow" id="v-pills-tips-tab" data-toggle="pill" href="#baitap5"
+                            role="tab" aria-controls="v-pills-tips" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 5</span></a> -->
+                    </div>
+                </div>
+
+
+                <div class="col-md-9">
+                    <!-- Tabs content -->
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade shadow rounded show active p-5" id="baitap1" role="tabpanel"
+                            aria-labelledby="v-pills-ts-tab">
+                            <h4 class="card--heading">QUẢN LÝ TUYỂN SINH</h4>
+                            <img class="img-fluid" src="./img/quanlytuyensinh.png" alt="baitap3">
+                            <form class="row gy-3 align-items-center px-2 mt-2">
+                                <div class="col-12 col-lg-4">
+                                    <input type="number" class="form-control form__input" id="diemchuan"
+                                        placeholder="Điểm chuẩn">
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <select class="form-control form__input" name="" id="khuvucuutien">
+                                        <option value="0">Chọn khu vực</option>
+                                        <option value="2">A</option>
+                                        <option value="1">B</option>
+                                        <option value="0.5">C</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <select class="form-control form__input" name="" id="doituonguutien">
+                                        <option value="0">Chọn đối tượng</option>
+                                        <option value="2.5">1</option>
+                                        <option value="1.5">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <input type="number" class="form-control form__input" id="mon1"
+                                        placeholder="Điểm môn thứ 1">
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <input type="number" class="form-control form__input" id="mon2"
+                                        placeholder="Điểm môn thứ 2">
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <input type="number" class="form-control form__input" id="mon3"
+                                        placeholder="Điểm môn thứ 3">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn-style me-1 mb-1" type="button" id="btnscore">Kết Quả Tuyển
+                                        Sinh</button> <!-- chỗ sửa id button -->
+                                    <div class="d-none text-white text-center rounded-3 p-3 mt-4 bg-warning fs-4"
+                                        id="thongbao">
+                                        <h1 id="content"></h1>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade shadow rounded p-5" id="baitap2" role="tabpanel"
+                            aria-labelledby="v-pills-electric-tab">
+                            <h4 class="card--heading">TÍNH TIỀN ĐIỆN</h4>
+                            <img class="img-fluid" src="./img/electric.JPG" alt="baitap2">
+                            <form class="row gy-3 align-items-center px-2 mt-2">
+                                <div class="col-12 col-lg-4">
+                                    <input type="text" class="form-control form__input" id="inputName"
+                                        placeholder="Nhập họ tên">
+                                </div>
+
+                                <div class="col-12 col-lg-4">
+                                    <input type="number" class="form-control form__input" id="inputKW"
+                                        placeholder="Nhập số kw">
+                                </div>
+
+
+                                <div class="col-12">
+                                    <button class="btn-style me-1 mb-1" type="button" id="btntiendien">Tính tiền
+                                        điện</button>
+                                </div>
+                                <div class="alert alert-success" role="alert">
+                                    👉<span id="tiendien"></span>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade shadow rounded p-5" id="baitap3" role="tabpanel"
+                            aria-labelledby="v-pills-tax-tab">
+                            <h4 class="card--heading">TÍNH THUẾ THU NHẬP CÁ NHÂN</h4>
+                            <img class="img-fluid" src="./img/thuethunhap.png" alt="baitap3">
+                            <form class="row gy-3 align-items-center px-2 mt-2">
+                                <div class="col-12 col-lg-4">
+                                    <input type="text" class="form-control form__input" id="tennguoinopthue"
+                                        placeholder="Nhập họ tên">
+                                </div>
+
+                                <div class="col-12 col-lg-4">
+                                    <input type="number" class="form-control form__input" id="tongthunhapnam"
+                                        placeholder="Tổng thu nhập năm">
+                                </div>
+
+                                <div class="col-12 col-lg-4">
+                                    <input type="text" class="form-control form__input" id="songuoiphuthuoc"
+                                        placeholder="Người phụ thuộc">
+                                </div>
+
+                                <div class="col-12">
+                                    <button class="btn-style me-1 mb-1" type="button" id="btnThueThuNhap">Tính tiền
+                                        thuế</button>
+                                </div>
+                                <div class="alert alert-success" role="alert">
+                                    👉<span id="thuethunhapcanhan"></span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade shadow rounded p-5" id="baitap4" role="tabpanel"
+                            aria-labelledby="v-pills-cable-tab">
+                            <h4 class="card--heading">TÍNH TIỀN CÁP</h4>
+                            <img class="img-fluid" src="./img/tinhtiencap.png" alt="baitap4">
+                            <form class="row gy-3 align-items-center px-2 mt-2">                                 
+                                <div class="col-12  col-lg-4">
+                                  <select class="form-control form__input" name="" id="loaikh" onchange="disableInput()">
+                                      <option value="">Chọn loại khách hàng</option>
+                                      <option value="user">Nhà Dân</option>
+                                      <option value="company">Doanh Nghiệp</option>                                      
+                                  </select>
+                              </div>     
+                              <div class="col-12 col-lg-4">
+                                  <input type="text" class="form-control form__input" id="makh" placeholder="Nhập mã khách hàng">
+                              </div>
+                              <div class="col-12 col-lg-4">
+                                  <input type="number" class="form-control form__input" id="sokenhcaocap" placeholder="Số kênh cao cấp">
+                              </div>
+                              <div class="col-12 col-lg-4">
+                                  <input type="number" style="display: none;" class="form-control form__input" id="soketnoi" placeholder="Số kết nối">
+                              </div>
+                              <div class="col-12">
+                                  <button class="btn-style me-1 mb-1" type="button" id="btnTinhTienCap">Tính tiền
+                                      cáp</button>
+                              </div>
+                              <div class="alert alert-success" role="alert">
+                                  👉<span id="tongtiencap"></span>
+                              </div>
+                          </form>
+                        </div>
+                        <!-- <div class="tab-pane fade shadow rounded p-5" id="baitap5" role="tabpanel"
+                            aria-labelledby="v-pills-tips-tab">
+                            <h4 class="card--heading">TÍNH TIỀN BOA</h4>
+                            <form class="row gy-3 align-items-center px-2">
+                                <div class="col-12 col-lg-4">
+                                    <input type="number" class="form-control form__input" id="tonghoadon"
+                                        placeholder="Tổng Tiền $">
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <select class="form-control form__input" name="" id="phantramtip">
+                                        <option selected="selected">Chọn để tip</option>
+                                        <option value="0.3">30% - Tuyệt</option>
+                                        <option value="0.2">20% - Tốt</option>
+                                        <option value="0.15">15% - Tạm Ổn</option>
+                                        <option value="0.1">10% - Tồi</option>
+                                        <option value="0.05">5% - Thật tệ</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <input type="number" class="form-control form__input" id="songuoi"
+                                        placeholder="Nhập số người">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn-style me-1 mb-1" type="button" id="btntienboa">TÍNH NÀO!!!</button>
+                                </div>
+                                <div class="alert alert-success" role="alert">
+                                    👉<span id="tienboa"></span>
+                                </div>
+                            </form>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
