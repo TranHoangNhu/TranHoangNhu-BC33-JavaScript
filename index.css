@@ -5,6 +5,7 @@
     overflow: hidden;
     background: url(./img/JS_Wallpaper.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
 }
 .button-82-pushable {
   position: relative;
