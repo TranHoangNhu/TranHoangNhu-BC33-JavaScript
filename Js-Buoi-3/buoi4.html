@@ -24,9 +24,30 @@
                     <!-- Tabs nav -->
                     <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
                         aria-orientation="vertical">
-                        <a class="nav-link mb-3 p-3 shadow active" id="v-pills-home-tab" data-toggle="pill"
-                            href="#baitap1" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                        <a class="nav-link mb-3 p-3 active" id="v-pills-home-tab" data-toggle="pill" href="#baitap1"
+                            role="tab" aria-controls="v-pills-home" aria-selected="true">
                             <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 1</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-profile-tab" data-toggle="pill" href="#baitap2"
+                            role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 2</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-messages-tab" data-toggle="pill" href="#baitap3"
+                            role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 3</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-settings-tab" data-toggle="pill" href="#baitap4"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 4</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-settings-tab" data-toggle="pill" href="#baitap5"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 5</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-settings-tab" data-toggle="pill" href="#baitap6"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 6</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-settings-tab" data-toggle="pill" href="#baitap7"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 7</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-settings-tab" data-toggle="pill" href="#baitap8"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 8</span></a>
                     </div>
                 </div>
 
@@ -34,7 +55,7 @@
                 <div class="col-md-9">
                     <!-- Tabs content -->
                     <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade shadow rounded show active p-5" id="baitap1" role="tabpanel"
+                        <!-- <div  id="baitap1" role="tabpanel"
                             aria-labelledby="v-pills-home-tab">
                             <h4 class="card--heading">💰 Tính tiền lương nhân viên</h4>
                             <div class="callout callout-info">
@@ -66,17 +87,227 @@
                                 </div>
 
                                 <div class="col-12">
-                                    <button class="btn btn-style me-1 mb-1" type="button" id="btnSalary">Tính      <!-- chỗ sửa id button -->
-                                        lương</button>
+                                    <button class="btn btn-style me-1 mb-1" type="button" id="btnSalary">Tính
+                                  
+                                        lương
+                                    </button>
                                 </div>
                                 <div class="alert alert-success" role="alert">
-                                    👉<span id="ketQuaLuong"></span>     <!-- chỗ sửa id kết quả cuối cùng -->
+                                    👉<span id="ketQuaLuong"></span> 
                                 </div>
                             </form>
-                        </div>
+                        </div> -->
+                        <div class="tab-pane fade shadow rounded show active p-5" id="baitap1" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <h4 class="card--heading">📚 Xuất 3 số theo thứ tự tăng dần</h4>
+                                <img class="img-fluid" src="./img/baitap_1.jpg" alt="baitap1">
+                                <form class="row gy-3 align-items-center px-2 mt-2">
+                                    <div class="col-12 col-lg-4">
+                                        <input type="text" class="form-control form__input" id="inputNum1" placeholder="Nhập số thứ 1">
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <input type="text" class="form-control form__input" id="inputNum2" placeholder="Nhập số thứ 2">
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <input type="text" class="form-control form__input" id="inputNum3" placeholder="Nhập số thứ 3">
+                                    </div>
+    
+                                    <div class="col-12">
+                                        <button class="btn-style me-1 mb-1" type="button" id="sortNumber">Sắp
+                                            Xếp</button>
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtSortNumber"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade shadow rounded p-5" id="baitap2" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                <h4 class="card--heading">👋 Chương trình "Chào hỏi"</h4>
+                                <img class="img-fluid" src="./img/baitap_2.jpg" alt="baitap2">
+                                <form class="row gy-3 align-items-center px-2 mt-2"> 
+                                    <div class="form-group col-12 col-lg-4">
+                                        <select class="form-control form__input" name="" id="selUser">
+                                            <option value="">Chọn thành viên</option>
+                                            <option value="B">Bố</option>
+                                            <option value="M">Mẹ</option>
+                                            <option value="A">Anh Trai</option>
+                                            <option value="E">Em Gái</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <button class="btn-style me-1 mb-1" type="button" id="btnHello">Gửi lời
+                                            chào</button>
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtHello"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade shadow rounded p-5" id="baitap3" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                <h4 class="card--heading">🧮 Đếm số chẵn lẻ</h4>
+                                <img class="img-fluid" src="./img/baitap_3.jpg" alt="baitap3">
+                                <form class="row gy-3 align-items-center px-2 mt-2"> 
+                                    <div class="col-12 col-lg-4">
+                                        <input type="text" class="form-control form__input" id="inputCount1" placeholder="Nhập số thứ 1">
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <input type="text" class="form-control form__input" id="inputCount2" placeholder="Nhập số thứ 2">
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <input type="text" class="form-control form__input" id="inputCount3" placeholder="Nhập số thứ 3">
+                                    </div>
+    
+                                    <div class="col-12">
+                                        <button class="btn-style me-1 mb-1" type="button" id="btnCount">Đếm</button>
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtCount"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade shadow rounded p-5" id="baitap4" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                <h4 class="card--heading">🔮 Đoán hình tam giác</h4>
+                                <img class="img-fluid" src="./img/baitap_4.jpg" alt="baitap4">
+                                <form class="row gy-3 align-items-center px-2 mt-2"> 
+                                    <div class="col-12 col-lg-4">
+                                        <input type="text" class="form-control form__input" id="inputEdge1" placeholder="Nhập độ dài cạnh 1">
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <input type="text" class="form-control form__input" id="inputEdge2" placeholder="Nhập độ dài cạnh 2">
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <input type="text" class="form-control form__input" id="inputEdge3" placeholder="Nhập độ dài cạnh 3">
+                                    </div>
+    
+                                    <div class="col-12">
+                                        <button class="btn-style me-1 mb-1" type="button" id="btnEdge">Dự
+                                            Đoán</button>
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtEdge"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade shadow rounded p-5" id="baitap5" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                <h4 class="card--heading">📅 Tính ngày tháng năm</h4>
+                                <img class="img-fluid" src="./img/baitap_5.jpg" alt="baitap5">
+                                <form class="row gy-3 align-items-center px-2 mt-2"> 
+                                    <div class="col-12 col-lg-4">
+                                        <input type="number" class="form-control form__input" id="inputDay" placeholder="Nhập Ngày">
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <input type="number" class="form-control form__input" id="inputMonth" placeholder="Nhập Tháng">
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <input type="number" class="form-control form__input" id="inputYear" placeholder="Nhập Năm">
+                                    </div>
+    
+                                    <div class="col-4">
+                                        <button class="btn-style me-1 mb-1" type="button" id="btnYesterday">Ngày Hôm
+                                            Qua</button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button class="btn-style me-1 mb-1" type="button" id="btnTomorrow">Ngày
+                                            Mai</button>
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtDate"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade shadow rounded p-5" id="baitap6" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                <h4 class="card--heading">🗓️ Tính ngày</h4>
+                                <img class="img-fluid" src="./img/baitap_6.jpg" alt="baitap6">
+                                <form class="row gy-3 align-items-center px-2 mt-2">                               
+                                    <div class="col-12 col-lg-4">
+                                        <input type="number" class="form-control form__input" id="inputMonth2" placeholder="Nhập Tháng">
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <input type="number" class="form-control form__input" id="inputYear2" placeholder="Nhập Năm">
+                                    </div>
+    
+                                    <div class="col-12 col-lg-4">
+                                        <button class="btn-style me-1 mb-1" type="button" id="btnCalcDay">Tính Ngày</button>
+                                    </div>                               
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtCalcDay"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade shadow rounded p-5" id="baitap7" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                <h4 class="card--heading">🔢 Đọc số</h4>
+                                <img class="img-fluid" src="./img/baitap_7.jpg" alt="baitap7">
+                                <form class="row gy-3 align-items-center px-2 mt-2">                               
+                                    <div class="col-12 col-lg-4">
+                                        <input type="number" class="form-control form__input" id="inputReadInt" placeholder="Nhập số 3 chữ số">
+                                    </div>                               
+                                    <div class="col-12 col-lg-4">
+                                        <button class="btn-style me-1 mb-1" type="button" id="btnReadInt">Đọc Số</button>
+                                    </div>                               
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtReadInt"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade shadow rounded p-5" id="baitap8" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                <h4 class="card--heading">🗺️ Tìm sinh viên xa trường nhất</h4>
+                                <img class="img-fluid" src="./img/baitap_8.jpg" alt="baitap8">
+                                <form class="row gy-3 align-items-center px-2 mt-2"> 
+                                    <div class="col-12">
+                                        <h5>Sinh Viên 1</h5>
+                                    </div>   
+                                    <div class="col-12 col-lg-4">                                    
+                                        <input type="text" class="form-control form__input" id="inputName1" placeholder="Nhập tên">
+                                    </div>                           
+                                    <div class="col-12 col-lg-4">                                    
+                                        <input type="number" class="form-control form__input" id="inputX1" placeholder="Nhập tọa độ x">
+                                    </div>
+                                    <div class="col-12 col-lg-4">                                    
+                                        <input type="number" class="form-control form__input" id="inputY1" placeholder="Nhập tọa độ y">
+                                    </div>          
+                                    <div class="col-12">
+                                        <h5>Sinh Viên 2</h5>
+                                    </div>   
+                                    <div class="col-12 col-lg-4">                                    
+                                        <input type="text" class="form-control form__input" id="inputName2" placeholder="Nhập tên">
+                                    </div>                           
+                                    <div class="col-12 col-lg-4">                                    
+                                        <input type="number" class="form-control form__input" id="inputX2" placeholder="Nhập tọa độ x">
+                                    </div>
+                                    <div class="col-12 col-lg-4">                                    
+                                        <input type="number" class="form-control form__input" id="inputY2" placeholder="Nhập tọa độ y">
+                                    </div> 
+                                    <div class="col-12">
+                                        <h5>Sinh Viên 3</h5>
+                                    </div>   
+                                    <div class="col-12 col-lg-4">                                    
+                                        <input type="text" class="form-control form__input" id="inputName3" placeholder="Nhập tên">
+                                    </div>                           
+                                    <div class="col-12 col-lg-4">                                    
+                                        <input type="number" class="form-control form__input" id="inputX3" placeholder="Nhập tọa độ x">
+                                    </div>
+                                    <div class="col-12 col-lg-4">                                    
+                                        <input type="number" class="form-control form__input" id="inputY3" placeholder="Nhập tọa độ y">
+                                    </div>  
+                                    <div class="col-12">
+                                        <h5>Trường học</h5>
+                                    </div> 
+                                                          
+                                    <div class="col-12 col-lg-4">                                    
+                                        <input type="number" class="form-control form__input" id="inputX4" placeholder="Nhập tọa độ x">
+                                    </div>
+                                    <div class="col-12 col-lg-4">                                    
+                                        <input type="number" class="form-control form__input" id="inputY4" placeholder="Nhập tọa độ y">
+                                    </div>                     
+                                    <div class="col-12">
+                                        <button class="btn-style me-1 mb-1" type="button" id="btnSearch">Tìm</button>
+                                    </div>                               
+                                    <div class="alert alert-success" role="alert">👉<span id="txtSearch"></span>
+                                    </div>
+                                </form>
+                            </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
