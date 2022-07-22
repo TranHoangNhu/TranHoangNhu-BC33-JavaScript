@@ -8,9 +8,9 @@ document.getElementById("btnscore").onclick = function quanLyTuyenSinh() {
   var doiTuongUuTien = parseFloat(
     document.getElementById("doituonguutien").value
   );
-  var diemTongKet = parseFloat(
-    monThuNhat + monThuHai + monThuBa + diemUuTien + doiTuongUuTien
-  );
+  var diemTongKet = 
+    monThuNhat + monThuHai + monThuBa + diemUuTien + doiTuongUuTien;
+
   document.getElementById("thongbao").classList.remove("d-none");
   if (diemTongKet >= diemChuan) {
     document

@@ -1,64 +1,107 @@
-function timSoChanLe() {
-  for (var e = "", t = "", n = 0; n < 100; n++)
-    n % 2 == 0 ? (e += n + " ") : (t += n + " ");
-  document.getElementById("txtResult").innerHTML =
-    "Số chẵn: " + e + "<br>👉Số lẻ: " + t;
+function getEle(n) {
+  return document.getElementById(n);
 }
-function demSoChia3() {
-  for (var e = 0, t = 0; t < 1e3; t++) t % 3 == 0 && e++;
-  document.getElementById("txtResult2").innerHTML =
-    "Số chia hết cho 3 nhỏ hơn 1000: " + e + " số";
+function getNumber() {
+  var n = Number(getEle("inputNum").value);
+  numArray.push(n), (getEle("txtArray").innerHTML = numArray);
+}
+function sumPositive() {
+  for (var n = 0, r = 0; r < numArray.length; r++)
+    numArray[r] > 0 && (n += numArray[r]);
+  getEle("txtSum").innerHTML = "Tổng số dương: " + n;
+}
+function countPositive() {
+  for (var n = 0, r = 0; r < numArray.length; r++) numArray[r] > 0 && n++;
+  getEle("txtCount").innerHTML = "Số dương: " + n;
 }
 function findMin() {
-  for (var e = 0, t = 0, n = 1; n < 1e4; n++)
-    if (((e += n), console.log(e), e > 1e4)) {
-      console.log(n), (t = n);
-      break;
-    }
-  document.getElementById("txtResult3").innerHTML =
-    "Số nguyên dương nhỏ nhất: " + t;
+  for (var n = numArray[0], r = 1; r < numArray.length; r++)
+    numArray[r] < n && (n = numArray[r]);
+  getEle("txtMin").innerHTML = "Số nhỏ nhất: " + n;
 }
-function tinhTong() {
-  for (
-    var e = document.getElementById("inputX").value,
-      t = document.getElementById("inputN").value,
-      n = 0,
-      o = 1;
-    o <= t;
-    o++
-  )
-    n += Math.pow(e, o);
-  document.getElementById("txtResult4").innerHTML = "Tổng: " + n;
+function findMinPos() {
+  for (var n = [], r = 0; r < numArray.length; r++)
+    numArray[r] > 0 && n.push(numArray[r]);
+  if (n.length > 0) {
+    for (var e = n[0], r = 1; r < n.length; r++) n[r] < e && (e = n[r]);
+    getEle("txtMinPos").innerHTML = "Số dương nhỏ nhất: " + e;
+  } else getEle("txtMinPos").innerHTML = "Không có số dương trong mảng";
 }
-function tinhGT() {
-  for (
-    var e = document.getElementById("inputN1").value, t = 1, n = 1;
-    n <= e;
-    n++
-  )
-    t *= n;
-  document.getElementById("txtResult5").innerHTML = "Giai thừa: " + t;
+function findMinPos() {
+  for (var n = [], r = 0; r < numArray.length; r++)
+    numArray[r] > 0 && n.push(numArray[r]);
+  if (n.length > 0) {
+    for (var e = n[0], r = 1; r < n.length; r++) n[r] < e && (e = n[r]);
+    getEle("txtMinPos").innerHTML = "Số dương nhỏ nhất: " + e;
+  } else getEle("txtMinPos").innerHTML = "Không có số dương trong mảng";
 }
-function taoDiv() {
-  for (var e = "", t = 1; t <= 10; t++)
-    e +=
-      t % 2 == 0
-        ? "<div class='bg-danger text-white p-2'>Div chẵn</div>"
-        : "<div class='bg-primary text-white  p-2'>Div lẻ </div>";
-  document.getElementById("txtResult6").innerHTML = e;
+function findEven() {
+  for (var n = 0, r = 0; r < numArray.length; r++)
+    numArray[r] % 2 == 0 && (n = numArray[r]);
+  getEle("txtEven").innerHTML = "Số chẵn cuối cùng: " + n;
 }
-function inSoNguyenTo() {
-  for (
-    var e = document.getElementById("inputN2").value, t = "", n = 1;
-    n <= e;
-    n++
-  ) {
-    checkPrime(n) && (t += " " + n);
-  }
-  document.getElementById("txtResult7").innerHTML = t;
+function swap(n, r) {
+  var e = numArray[n];
+  (numArray[n] = numArray[r]), (numArray[r] = e);
 }
-function checkPrime(e) {
-  if (e < 2) return !1;
-  for (var t = 2; t <= Math.sqrt(e); t++) if (e % t == 0) return !1;
+function changePosition() {
+  swap(getEle("inputIndex1").value, getEle("inputIndex2").value),
+    (getEle("txtChangePos").innerHTML = "Mảng sau khi đổi: " + numArray);
+}
+function sortIncrease() {
+  for (var n = 0; n < numArray.length; n++)
+    for (var r = 0; r < numArray.length - 1; r++)
+      numArray[r] > numArray[r + 1] && swap(r, r + 1);
+  getEle("txtIncrease").innerHTML = "Mảng sau khi sắp xếp: " + numArray;
+}
+function checkPrime(n) {
+  if (n < 2) return !1;
+  for (var r = 2; r <= Math.sqrt(n); r++) if (n % r == 0) return !1;
   return !0;
 }
+function findPrime() {
+  for (var n = -1, r = 0; r < numArray.length; r++) {
+    if (checkPrime(numArray[r])) {
+      n = numArray[r];
+      break;
+    }
+  }
+  getEle("txtPrime").innerHTML = n;
+}
+function getFloat() {
+  var n = Number(getEle("inputFloat").value);
+  arrayFloat.push(n), (getEle("txtArrayFloat").innerHTML = arrayFloat);
+}
+function findInt() {
+  for (var n = 0, r = 0; r < arrayFloat.length; r++)
+    Number.isInteger(arrayFloat[r]) && n++;
+  getEle("txtInt").innerHTML = "Số nguyên: " + n;
+}
+function compareNum() {
+  for (var n = 0, r = 0, e = 0; e < numArray.length; e++)
+    numArray[e] > 0 ? n++ : numArray[e] < 0 && r++;
+  getEle("txtCompare").innerHTML =
+    n > r
+      ? "Số dương > Số âm"
+      : n < r
+      ? "Số âm > Số dương"
+      : "Số âm = Số dương";
+}
+document.addEventListener(
+  "contextmenu",
+  function (n) {
+    n.preventDefault();
+  },
+  !1
+),
+  (document.onkeydown = function (n) {
+    return (
+      123 != (n = n || window.event).keyCode &&
+      (!n.ctrlKey || !n.shiftKey || 73 != n.keyCode) &&
+      void 0
+    );
+  });
+var numArray = [],
+  arrayFloat = [];
+
+
