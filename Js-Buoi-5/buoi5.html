@@ -9,7 +9,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="./mystyle.css">
-    <title>JS-Buổi 5</title>
+    <title>BÀI TẬP VÒNG LẶP</title>
 </head>
 
 <body>
@@ -17,63 +17,141 @@
     <section class="py-5 header">
         <div class="container py-4">
             <header class="text-center mb-5 pb-5 text-dark">
-                <h1 class="display-4 font-weight-bold">BÀI TẬP JS BUỔI 4 - TRẦN HOÀNG NHU</h1>
+                <h1 class="display-4 font-weight-bold">BÀI TẬP JS BUỔI 16 - TRẦN HOÀNG NHU</h1>
             </header>
             <div class="row">
-                <div class="col-md-3">
-                    <!-- Tabs nav -->
-                    <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
-                        aria-orientation="vertical">
-                        <a class="nav-link mb-3 p-3 shadow active" id="v-pills-home-tab" data-toggle="pill"
-                            href="#baitap1" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                    <div class="col-12 col-md-4 col-lg-3 col-xl-2 nav-tabs nav flex-md-column nav-pills-custom" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link mb-3 p-3 active" id="v-pills-home-tab" data-toggle="pill" href="#bai1"
+                            role="tab" aria-controls="v-pills-home" aria-selected="true">
                             <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 1</span></a>
-                    </div>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-profile-tab" data-toggle="pill" href="#bai2"
+                            role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 2</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-messages-tab" data-toggle="pill" href="#bai3"
+                            role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 3</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-settings-tab" data-toggle="pill" href="#bai4"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 4</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-settings-tab" data-toggle="pill" href="#bai5"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 5</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-settings-tab" data-toggle="pill" href="#bai6"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 6</span></a>
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-settings-tab" data-toggle="pill" href="#bai7"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 7</span></a>
                 </div>
 
 
                 <div class="col-md-9">
                     <!-- Tabs content -->
                     <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade shadow rounded show active p-5" id="baitap1" role="tabpanel"
-                            aria-labelledby="v-pills-home-tab">
-                            <h4 class="card--heading">💰 Tính tiền lương nhân viên</h4>
-                            <div class="callout callout-info">
-
-                                <p>💡<b>Gợi ý:</b>
-                                    <br>
-                                    Công thức: Lương = Lương 1 ngày * số ngày làm
-                                    <br>
-                                    Kiến thức áp dụng:
-                                </p>
-                                <ul>
-                                    <li>Tìm tới thẻ và lấy giá trị</li>
-                                    <li>Tạo hàm cơ bản</li>
-                                    <li>Gắn sự kiện click cho button</li>
-                                    <li>Thay đổi nội dung cho thẻ</li>
-                                    <li>Xử lý load trang với button của form</li>
-                                </ul>
-                                <p></p>
-
+                            <div class="tab-pane fade shadow rounded p-5 shadow rounded show active p-5" id="bai1" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <h4 class="card--heading">1️⃣ Tìm số chẵn/lẻ nhỏ hơn 100</h4>
+                                <form class="row gy-3 align-items-center px-2">
+    
+                                    <div class="col-12">
+                                        <button class="btn-style me-1 mb-1" type="button" onclick="timSoChanLe()">Xem
+                                            Kết
+                                            Quả</button>
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtResult"></span>
+                                    </div>
+                                </form>
                             </div>
-                            <form class="row gy-3 align-items-center px-2">
-                                <div class="col-12 col-lg-4">
-                                    <input type="number" class="form-control form__input" id="inputNum1"
-                                        placeholder="Nhập lương một ngày">
-                                </div>
-                                <div class="col-12 col-lg-4">
-                                    <input type="number" class="form-control form__input" id="inputNum2"
-                                        placeholder="Số ngày làm">
-                                </div>
-
-                                <div class="col-12">
-                                    <button class="btn btn-style me-1 mb-1" type="button" id="btnSalary">Tính      <!-- chỗ sửa id button -->
-                                        lương</button>
-                                </div>
-                                <div class="alert alert-success" role="alert">
-                                    👉<span id="ketQuaLuong"></span>     <!-- chỗ sửa id kết quả cuối cùng -->
-                                </div>
-                            </form>
-                        </div>
+                            <div class="tab-pane fade shadow rounded p-5" id="bai2" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <h4 class="card--heading">2️⃣ Đếm số chia hết cho 3</h4>
+                                <form class="row gy-3 align-items-center px-2">
+    
+                                    <div class="col-12">
+                                        <button class="btn-style me-1 mb-1" type="button" onclick="demSoChia3()">Xem
+                                            Kết
+                                            Quả</button>
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtResult2"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade shadow rounded p-5" id="bai3" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <h4 class="card--heading">3️⃣ Tìm số nguyên dương nhỏ nhất</h4>
+                                <form class="row gy-3 align-items-center px-2">
+    
+                                    <div class="col-12">
+                                        <button class="btn-style me-1 mb-1" type="button" onclick="findMin()">Xem
+                                            Kết
+                                            Quả</button>
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtResult3"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade shadow rounded p-5" id="bai4" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <h4 class="card--heading">4️⃣ Tính tổng</h4>
+                                <form class="row gy-3 align-items-center px-2">
+                                    <div class="col-12 col-lg-4">
+                                        <input type="number" class="form-control form__input" id="inputX" placeholder="Nhập số x">
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <input type="number" class="form-control form__input" id="inputN" placeholder="Nhập số n">
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn-style me-1 mb-1" type="button" onclick="tinhTong()">Tính
+                                            tổng</button>
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtResult4"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade shadow rounded p-5" id="bai5" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <h4 class="card--heading">5️⃣ Tính giai thừa</h4>
+                                <form class="row gy-3 align-items-center px-2">
+                                    <div class="col-12 col-lg-4">
+                                        <input type="number" class="form-control form__input" id="inputN1" placeholder="Nhập số n">
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn-style me-1 mb-1" type="button" onclick="tinhGT()">Tính
+                                        </button>
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtResult5"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade shadow rounded p-5" id="bai6" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <h4 class="card--heading">6️⃣ Tạo thẻ div</h4>
+                                <form class="row gy-3 align-items-center px-2">
+    
+                                    <div class="col-12">
+                                        <button class="btn-style me-1 mb-1" type="button" onclick="taoDiv()">Tạo thẻ
+                                        </button>
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtResult6"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade shadow rounded p-5" id="bai7" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <h4 class="card--heading">7️⃣ In số nguyên tố</h4>
+                                <form class="row gy-3 align-items-center px-2">
+                                    <div class="col-12 col-lg-4">
+                                        <input type="number" class="form-control form__input" id="inputN2" placeholder="Nhập số n">
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn-style me-1 mb-1" type="button" onclick="inSoNguyenTo()">In
+                                            số
+                                        </button>
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                        👉<span id="txtResult7"></span>
+                                    </div>
+                                </form>
+                            </div>
                 </div>
             </div>
         </div>
