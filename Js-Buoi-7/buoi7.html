@@ -9,79 +9,178 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="./mystyle.css">
-    <title>JS-Buổi 5</title>
+    <title>Bài Tập Mảng</title>
 </head>
 
-<body>
-    <!-- Demo header-->
-    <section class="py-5 header">
-        <div class="container py-4">
-            <header class="text-center mb-5 pb-5 text-dark">
-                <h1 class="display-4 font-weight-bold">BÀI TẬP JS BUỔI 4 - TRẦN HOÀNG NHU</h1>
-            </header>
-            <div class="row">
-                <div class="col-md-3">
-                    <!-- Tabs nav -->
-                    <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
-                        aria-orientation="vertical">
-                        <a class="nav-link mb-3 p-3 shadow active" id="v-pills-home-tab" data-toggle="pill"
-                            href="#baitap1" role="tab" aria-controls="v-pills-home" aria-selected="true">
-                            <span class="font-weight-bold text-uppercase fs-4">BÀI TẬP 1</span></a>
-                    </div>
+<body id="style-1" class="scrollbar">
+    <div class="container">
+        <h1>Trần Hoàng Nhu - Bài Tập Nộp Buổi 18</h1>
+        <div class="accordion">
+            <form class="row gy-3 align-items-center py-3">
+                <div class="col-12 col-lg-6">
+                    <input type="number" class="form-control form__input" id="inputNum" placeholder="Nhập số n">
                 </div>
-
-
-                <div class="col-md-9">
-                    <!-- Tabs content -->
-                    <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade shadow rounded show active p-5" id="baitap1" role="tabpanel"
-                            aria-labelledby="v-pills-home-tab">
-                            <h4 class="card--heading">💰 Tính tiền lương nhân viên</h4>
-                            <div class="callout callout-info">
-
-                                <p>💡<b>Gợi ý:</b>
-                                    <br>
-                                    Công thức: Lương = Lương 1 ngày * số ngày làm
-                                    <br>
-                                    Kiến thức áp dụng:
-                                </p>
-                                <ul>
-                                    <li>Tìm tới thẻ và lấy giá trị</li>
-                                    <li>Tạo hàm cơ bản</li>
-                                    <li>Gắn sự kiện click cho button</li>
-                                    <li>Thay đổi nội dung cho thẻ</li>
-                                    <li>Xử lý load trang với button của form</li>
-                                </ul>
-                                <p></p>
-
-                            </div>
-                            <form class="row gy-3 align-items-center px-2">
-                                <div class="col-12 col-lg-4">
-                                    <input type="number" class="form-control form__input" id="inputNum1"
-                                        placeholder="Nhập lương một ngày">
-                                </div>
-                                <div class="col-12 col-lg-4">
-                                    <input type="number" class="form-control form__input" id="inputNum2"
-                                        placeholder="Số ngày làm">
-                                </div>
-
-                                <div class="col-12">
-                                    <button class="btn btn-style me-1 mb-1" type="button" id="btnSalary">Tính      <!-- chỗ sửa id button -->
-                                        lương</button>
-                                </div>
-                                <div class="alert alert-success" role="alert">
-                                    👉<span id="ketQuaLuong"></span>     <!-- chỗ sửa id kết quả cuối cùng -->
-                                </div>
-                            </form>
+                <div class="col-12 col-lg-6">
+                    <button class="btn-style me-1 mb-1" type="button" onclick="getNumber()">Thêm
+                        số</button>
+                </div>
+                <div class="alert alert-success" role="alert">
+                    👉<span id="txtArray"></span>
+                </div>
+            </form>
+            <dl>
+                <dt><a class="accordionTitle text-uppercase" href="#">1️⃣ TỔNG SỐ DƯƠNG</a></dt>
+                <dd id="style-1" class="scrollbar accordionItem accordionItemCollapsed">
+                    <form class="row gy-3 align-items-center px-2">
+                        <img class="img-fluid" src="./img/baitap1.jpg" alt="baitap">
+                        <div class="col-12">
+                            <button class="btn-style m-2" type="button" onclick="sumPositive()">Tính
+                                tổng</button>
                         </div>
-                </div>
-            </div>
+                        <div class="alert alert-success" role="alert">
+                            👉<span id="txtSum"></span>
+                        </div>
+                    </form>
+                </dd>
+                <dt><a class="accordionTitle text-uppercase" href="#">2️⃣ ĐẾM SỐ DƯƠNG</a></dt>
+                <dd id="style-1" class="scrollbar accordionItem accordionItemCollapsed">
+                    <form class="row gy-3 align-items-center px-2">
+                        <img class="img-fluid" src="./img/baitap2.jpg" alt="baitap">
+                        <div class="col-12">
+                            <button class="btn-style m-2" type="button" onclick="countPositive()">Đếm số</button>
+                        </div>
+                        <div class="alert alert-success" role="alert">
+                            👉<span id="txtCount"></span>
+                        </div>
+                    </form>
+                </dd>
+                <dt><a class="accordionTitle text-uppercase" href="#">3️⃣ Tìm số nhỏ nhất</a></dt>
+                <dd id="style-1" class="scrollbar accordionItem accordionItemCollapsed">
+                    <form class="row gy-3 align-items-center px-2">
+                        <img class="img-fluid" src="./img/baitap3.jpg" alt="baitap">
+                        <div class="col-12">
+                            <button class="btn-style m-2" type="button" onclick="findMin()">Tìm số nhỏ nhất</button>
+                        </div>
+                        <div class="alert alert-success" role="alert">
+                            👉<span id="txtMin"></span>
+                        </div>
+                    </form>
+                </dd>
+                <dt><a class="accordionTitle text-uppercase" href="#">4️⃣ Tìm số dương nhỏ nhất</a></dt>
+                <dd id="style-1" class="scrollbar accordionItem accordionItemCollapsed">
+                    <form class="row gy-3 align-items-center px-2">
+                        <img class="img-fluid" src="./img/baitap4.jpg" alt="baitap">
+                        <div class="col-12">
+                            <button class="btn-style m-2" type="button" onclick="findMinPos()">Tìm số dương nhỏ
+                                nhất</button>
+                        </div>
+                        <div class="alert alert-success" role="alert">
+                            👉<span id="txtMinPos"></span>
+                        </div>
+                    </form>
+                </dd>
+                <dt><a class="accordionTitle text-uppercase" href="#">5️⃣ Tìm số chẵn cuối cùng</a></dt>
+                <dd id="style-1" class="scrollbar accordionItem accordionItemCollapsed">
+                    <form class="row gy-3 align-items-center px-2">
+                        <img class="img-fluid" src="./img/baitap5.jpg" alt="baitap">
+                        <div class="col-12">
+                            <button class="btn-style m-2" type="button" onclick="findEven()">Tìm số chẵn cuối
+                                cùng</button>
+                        </div>
+                        <div class="alert alert-success" role="alert">
+                            👉<span id="txtEven"></span>
+                        </div>
+                    </form>
+                </dd>
+                <dt><a class="accordionTitle text-uppercase" href="#">6️⃣ Đổi chỗ</a></dt>
+                <dd id="style-1" class="scrollbar accordionItem accordionItemCollapsed">
+                    <form class="row gy-3 align-items-center px-2">
+                        <img class="img-fluid" src="./img/baitap6.jpg" alt="baitap">
+                        <div class="col-12 col-lg-6">
+                            <input type="number" class="form-control form__input" id="inputIndex1"
+                                placeholder="Nhập số vị trí 1">
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <input type="number" class="form-control form__input" id="inputIndex2"
+                                placeholder="Nhập số vị trí 2">
+                        </div>
+                        <div class="col-12">
+                            <button class="btn-style me-1 mb-1" type="button" onclick="changePosition()">Đổi
+                                chỗ</button>
+                        </div>
+                        <div class="alert alert-success" role="alert">
+                            👉<span id="txtChangePos"></span>
+                        </div>
+                    </form>
+                </dd>
+                <dt><a class="accordionTitle text-uppercase" href="#">7️⃣ Sắp xếp tăng dần</a></dt>
+                <dd id="style-1" class="scrollbar accordionItem accordionItemCollapsed">
+                    <form class="row gy-3 align-items-center px-2">
+                        <img class="img-fluid" src="./img/baitap7.jpg" alt="baitap">
+                        <div class="col-12">
+                            <button class="btn-style m-2" type="button" onclick="sortIncrease()">Sắp xếp tăng
+                                dần</button>
+                        </div>
+                        <div class="alert alert-success" role="alert">
+                            👉<span id="txtIncrease"></span>
+                        </div>
+                    </form>
+                </dd>
+                <dt><a class="accordionTitle text-uppercase" href="#">8️⃣ Tìm số nguyên tố đầu tiên</a></dt>
+                <dd id="style-1" class="scrollbar accordionItem accordionItemCollapsed">
+                    <form class="row gy-3 align-items-center px-2">
+                        <img class="img-fluid" src="./img/baitap8.jpg" alt="baitap">
+                        <div class="col-12">
+                            <button class="btn-style m-2" type="button" onclick="findPrime()">Tìm số nguyên tố đầu
+                                tiên</button>
+                        </div>
+                        <div class="alert alert-success" role="alert">
+                            👉<span id="txtPrime"></span>
+                        </div>
+                    </form>
+                </dd>
+                <dt><a class="accordionTitle text-uppercase" href="#">9️⃣ Đếm số nguyên</a></dt>
+                <dd id="style-1" class="scrollbar accordionItem accordionItemCollapsed">
+                    <form class="row gy-3 align-items-center py-3">
+                        <img class="img-fluid" src="./img/baitap9.jpg" alt="baitap">
+                        <div class="col-12 col-lg-6">
+                            <input type="number" class="form-control form__input" id="inputFloat" placeholder="Nhập số">
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <button class="btn-style me-1 mb-1" type="button" onclick="getFloat()">Thêm
+                                số</button>
+                        </div>
+                        <div class="alert alert-success col-12 col-lg-6" role="alert">
+                            👉<span id="txtArrayFloat"></span>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <button class="btn-style me-1 mb-1" type="button" onclick="findInt()">Đếm số
+                                nguyên</button>
+                        </div>
+                        <div class="alert alert-success" role="alert">
+                            👉<span id="txtInt"></span>
+                        </div>
+                    </form>
+                </dd>
+                <dt><a class="accordionTitle text-uppercase" href="#">🔟 So sánh số lượng số âm và dương</a></dt>
+                <dd id="style-1" class="scrollbar accordionItem accordionItemCollapsed">
+                    <form class="row gy-3 align-items-center px-2">
+                        <img class="img-fluid" src="./img/baitap10.jpg" alt="baitap">
+                        <div class="col-12">
+                            <button class="btn-style m-2" type="button" onclick="compareNum()">So sánh số lượng số âm
+                                và dương</button>
+                        </div>
+                        <div class="alert alert-success" role="alert">
+                            👉<span id="txtCompare"></span>
+                        </div>
+                    </form>
+                </dd>
+            </dl>
         </div>
-    </section>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="./main.js"></script>
+    <script src="./baitap.js"></script>
 </body>
 
 </html>
