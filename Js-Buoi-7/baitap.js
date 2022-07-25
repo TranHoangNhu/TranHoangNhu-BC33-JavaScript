@@ -87,19 +87,5 @@ function compareNum() {
       ? "Số âm > Số dương"
       : "Số âm = Số dương";
 }
-document.addEventListener(
-  "contextmenu",
-  function (n) {
-    n.preventDefault();
-  },
-  !1
-),
-  (document.onkeydown = function (n) {
-    return (
-      123 != (n = n || window.event).keyCode &&
-      (!n.ctrlKey || !n.shiftKey || 73 != n.keyCode) &&
-      void 0
-    );
-  });
 var numArray = [],
   arrayFloat = [];
