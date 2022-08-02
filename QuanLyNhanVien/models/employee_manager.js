@@ -16,13 +16,19 @@ function Employee(
   this.basicSalary = basicSalary;
   this.position = position;
   this.hoursWork = hoursWork;
-  this.totalSalaryForPosition = function () {
+  //  Phuơng Thức Tính Lương Dựa Trên Chức Vụ
+  this.salaryForPosition = function () {
     return this.position === "Giám Đốc"
-      ? +(this.basicSalary * this.hoursWork * 3)
+      ? +(this.basicSalary * 3)
       : this.position === "Trưởng Phòng"
-      ? +(this.basicSalary * this.hoursWork * 2)
-      : +(this.basicSalary * this.hoursWork * 1);
+      ? +(this.basicSalary * 2)
+      : +(this.basicSalary * 1);
   };
+//  Phuơng Thức Tính Tổng Lương
+  this.totalSalary = function () {
+    return this.salaryForPosition() * this.hoursWork;
+  };
+  //  Phuơng Thức Xếp Loại Nhân Viên
   this.employRating = function () {
     return this.hoursWork >= 192
       ? "Nhân viên xuất sắc"
