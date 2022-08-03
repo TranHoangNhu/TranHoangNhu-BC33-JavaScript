@@ -26,7 +26,8 @@ function Employee(
   };
 //  Phuơng Thức Tính Tổng Lương
   this.totalSalary = function () {
-    return this.salaryForPosition() * this.hoursWork;
+    return this.salaryForPosition() * this.hoursWork / 240;
+    //chia 240 dựa theo quy tắc 1 ngày làm 8 tiếng, 1 tháng có 30 ngày nên 1 tháng suy ra làm max được 240 tiếng 
   };
   //  Phuơng Thức Xếp Loại Nhân Viên
   this.employRating = function () {

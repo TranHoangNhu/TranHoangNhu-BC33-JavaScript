@@ -113,12 +113,48 @@ function delEmploy(idClick) { // input id: giá trị người dùng click
     }
   }
   renderEmployees();
-  // saveLocalStorage(employeeList, 'arrSV');
+  // saveLocalStorage(employeeList, 'arrEm');
   // if (indexDel !== -1) { //tìm thấy
   //   employeeList.splice(indexDel, 1);
   //   //Gọi lại hàm render table mới
   //   //Lưu danh sách sau khi xoá vào storage
   // }
+}
+//Khi người dùng thay đổi sau đó bấm nút update 
+function updateEmploy() {
+  var EmUpdate = new Employee();
+  EmUpdate.account = document.querySelector('#tknv').value;
+  EmUpdate.name = document.querySelector('#name').value;
+  EmUpdate.email = document.querySelector('#email').value;
+  EmUpdate.password = document.querySelector('#password').value;
+  EmUpdate.workday = document.querySelector('#datepicker').value;
+  EmUpdate.basicSalary = document.querySelector('#luongCB').value;
+  EmUpdate.position = document.querySelector('#chucvu').value;
+  EmUpdate.hoursWork = document.querySelector('#gioLam').value;
+  console.log(EmUpdate);
+  //Duyệt qua từng object trong employeeList tìm ra vị trí của object cần thay đổi
+  //                 0      1      2
+  //employeeList = [{id:1},{id:2},{id:3}]
+  let indexEdit = -1;
+  for (var index = 0; index < employeeList.length; index++) {
+    if (employeeList[index].account === EmUpdate.account) {
+      indexEdit = index; //1
+      break;
+    }
+  }
+  if (indexEdit !== -1) {
+    //Nếu tìm thấy vị trí trong mảng thì lấy object trong mảng gán lại = object trên giao diện người dùng thay đổi
+    // employeeList[indexEdit] = EmUpdate;
+    employeeList[indexEdit].name = EmUpdate.name;
+    employeeList[indexEdit].email = EmUpdate.email;
+    employeeList[indexEdit].password = EmUpdate.password;
+    employeeList[indexEdit].workday = EmUpdate.workday;
+    employeeList[indexEdit].basicSalary = EmUpdate.basicSalary;
+    employeeList[indexEdit].position = EmUpdate.position;
+    employeeList[indexEdit].hoursWork = EmUpdate.hoursWork;
+    //Gọi hàm rendertable truyền cho hàm mảng mới
+    renderEmployees();
+  }
 }
   // input: data local => output: data mới
   function mapData(employeeListLocal) {
