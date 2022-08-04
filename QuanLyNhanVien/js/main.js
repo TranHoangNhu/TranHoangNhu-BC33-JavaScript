@@ -37,30 +37,39 @@ function createEmployee() {
   saveLocalStorage();
 }
 function renderEmployees() {
-    var result = "";
-    for (var i = 0; i < employeeList.length; i++) {
-      var currentemployee = employeeList[i];
-      result += `<tr>
+  var result = "";
+  for (var i = 0; i < employeeList.length; i++) {
+    var currentemployee = employeeList[i];
+    result += `<tr>
                       <td>${currentemployee.account}</td>
                       <td>${currentemployee.name}</td>
                       <td>${currentemployee.email}</td>
                       <td>${currentemployee.workday}</td>
                       <td>${currentemployee.position}</td>
-                      <td>${currentemployee.totalSalary().toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
+                      <td>${currentemployee
+                        .totalSalary()
+                        .toLocaleString("vi", {
+                          style: "currency",
+                          currency: "VND",
+                        })}</td>
                       <td>${currentemployee.employRating()}</td>
                       <td>
-                        <button class="btn btn-danger my-2" onclick="delEmploy('${currentemployee.account}')">Del</button>
-                        <button class="btn btn-primary my-2" onclick="editEmploy('${currentemployee.account}')" data-toggle="modal" data-target="#myModal">Update</button>
+                        <button class="btn btn-danger my-2" onclick="delEmploy('${
+                          currentemployee.account
+                        }')">Del</button>
+                        <button class="btn btn-primary my-2" onclick="editEmploy('${
+                          currentemployee.account
+                        }')" data-toggle="modal" data-target="#myModal">Update</button>
                       </td>
                   </tr>`;
-    }
-  
-    document.getElementById("tableDanhSach").innerHTML = result;
- }
- function saveLocalStorage() {
-    var employeeListJSON = JSON.stringify(employeeList);
-    localStorage.setItem("list", employeeListJSON);
   }
+
+  document.getElementById("tableDanhSach").innerHTML = result;
+}
+function saveLocalStorage() {
+  var employeeListJSON = JSON.stringify(employeeList);
+  localStorage.setItem("list", employeeListJSON);
+}
 function findById(account) {
   for (var i = 0; i < employeeList.length; i++) {
     if (employeeList[i].account === account) {
@@ -70,15 +79,15 @@ function findById(account) {
   return -1;
 }
 function getLocalStorage() {
-    var employeeListJSON = localStorage.getItem("list");
-    if (employeeListJSON === null) return;
-  
-    var employeeListLocal = JSON.parse(employeeListJSON);
-    employeeList = mapData(employeeListLocal);
-  
-    renderEmployees();
-  }
-  //Cập Nhật Nhân Viên
+  var employeeListJSON = localStorage.getItem("list");
+  if (employeeListJSON === null) return;
+
+  var employeeListLocal = JSON.parse(employeeListJSON);
+  employeeList = mapData(employeeListLocal);
+
+  renderEmployees();
+}
+//Cập Nhật Nhân Viên
 function editEmploy(idClick) {
   var EmployEdit = null;
   for (var index = 0; index < employeeList.length; index++) {
@@ -91,17 +100,18 @@ function editEmploy(idClick) {
   // console.log(EmployEdit);
   if (EmployEdit !== null) {
     //Đưa dữ liệu lên các control input
-    document.querySelector('#tknv').value = EmployEdit.account;
-    document.querySelector('#name').value = EmployEdit.name;
-    document.querySelector('#email').value = EmployEdit.email;
-    document.querySelector('#password').value = EmployEdit.password;
-    document.querySelector('#datepicker').value = EmployEdit.workday;
-    document.querySelector('#luongCB').value = EmployEdit.basicSalary;
-    document.querySelector('#chucvu').value = EmployEdit.position;
-    document.querySelector('#gioLam').value = EmployEdit.hoursWork;
+    document.querySelector("#tknv").value = EmployEdit.account;
+    document.querySelector("#name").value = EmployEdit.name;
+    document.querySelector("#email").value = EmployEdit.email;
+    document.querySelector("#password").value = EmployEdit.password;
+    document.querySelector("#datepicker").value = EmployEdit.workday;
+    document.querySelector("#luongCB").value = EmployEdit.basicSalary;
+    document.querySelector("#chucvu").value = EmployEdit.position;
+    document.querySelector("#gioLam").value = EmployEdit.hoursWork;
   }
 }
-function delEmploy(idClick) { // input id: giá trị người dùng click
+function delEmploy(idClick) {
+  // input id: giá trị người dùng click
   //output: index    //                 0   1   2
   var indexDel = -1; // employeeList = [{1},{2},{3}] employeeList[2].name ='abc';
   for (var index = employeeList.length - 1; index >= 0; index--) {
@@ -120,17 +130,17 @@ function delEmploy(idClick) { // input id: giá trị người dùng click
   //   //Lưu danh sách sau khi xoá vào storage
   // }
 }
-//Khi người dùng thay đổi sau đó bấm nút update 
+//Khi người dùng thay đổi sau đó bấm nút update
 function updateEmploy() {
   var EmUpdate = new Employee();
-  EmUpdate.account = document.querySelector('#tknv').value;
-  EmUpdate.name = document.querySelector('#name').value;
-  EmUpdate.email = document.querySelector('#email').value;
-  EmUpdate.password = document.querySelector('#password').value;
-  EmUpdate.workday = document.querySelector('#datepicker').value;
-  EmUpdate.basicSalary = document.querySelector('#luongCB').value;
-  EmUpdate.position = document.querySelector('#chucvu').value;
-  EmUpdate.hoursWork = document.querySelector('#gioLam').value;
+  EmUpdate.account = document.querySelector("#tknv").value;
+  EmUpdate.name = document.querySelector("#name").value;
+  EmUpdate.email = document.querySelector("#email").value;
+  EmUpdate.password = document.querySelector("#password").value;
+  EmUpdate.workday = document.querySelector("#datepicker").value;
+  EmUpdate.basicSalary = document.querySelector("#luongCB").value;
+  EmUpdate.position = document.querySelector("#chucvu").value;
+  EmUpdate.hoursWork = document.querySelector("#gioLam").value;
   console.log(EmUpdate);
   //Duyệt qua từng object trong employeeList tìm ra vị trí của object cần thay đổi
   //                 0      1      2
@@ -156,27 +166,140 @@ function updateEmploy() {
     renderEmployees();
   }
 }
-  // input: data local => output: data mới
-  function mapData(employeeListLocal) {
-    var result = [];
-    for (var i = 0; i < employeeListLocal.length; i++) {
-      var currentemployee = employeeListLocal[i];
-      var copiedEmployee = new Employee(
-        currentemployee.account,
-        currentemployee.name,
-        currentemployee.email,
-        currentemployee.password,
-        currentemployee.workday,
-        currentemployee.hoursWork,
-        currentemployee.basicSalary,
-        currentemployee.position
-      );
-  
-      result.push(copiedEmployee);
-    }
-  
-    return result;
-  }
-  
-  getLocalStorage();
+//render có đối số
+function updateRenderEmployees(arrSV) {
+  //input : ??? [{maSinhVien:'1',tenSinhVien:'A',...},{maSinhVien:'2',tenSinhVien:'B',...},{maSinhVien:'3',tenSinhVien:'C',...}]
+  var result = "";
+  for (var index = 0; index < arrSV.length; index++) {
+    var obEmployee = arrSV[index];
+    obEmployee.salaryForPosition = function () {
+      return this.position === "Giám Đốc"
+        ? +(this.basicSalary * 3)
+        : this.position === "Trưởng Phòng"
+        ? +(this.basicSalary * 2)
+        : +(this.basicSalary * 1);
+    };
+    obEmployee.totalSalary = function () {
+      return (this.salaryForPosition() * this.hoursWork) / 240;
+    };
+    obEmployee.employRating = function () {
+      return this.hoursWork >= 192
+        ? "Nhân viên xuất sắc"
+        : this.hoursWork >= 176
+        ? "Nhân viên giỏi"
+        : this.hoursWork >= 160
+        ? "Nhân viên khá"
+        : "Nhân viên trung bình";
+    };
+    var trEmploy = `
+        <tr>
+        <td>${obEmployee.account}</td>
+        <td>${obEmployee.name}</td>
+        <td>${obEmployee.email}</td>
+        <td>${obEmployee.workday}</td>
+        <td>${obEmployee.position}</td>
+        <td>${obEmployee
+          .totalSalary()
+          .toLocaleString("vi", { style: "currency", currency: "VND" })}</td>
+        <td>${obEmployee.employRating()}</td>
+        <td>
+          <button class="btn btn-danger my-2" onclick="delEmploy('${
+            obEmployee.account
+          }')">Del</button>
+          <button class="btn btn-primary my-2" onclick="editEmploy('${
+            obEmployee.account
+          }')" data-toggle="modal" data-target="#myModal">Update</button>
+        </td>
+        </tr>
+      `;
 
+    result += trEmploy;
+  }
+  document.getElementById("tableDanhSach").innerHTML = result;
+  return result;
+}
+
+var searchEmploy = function () {
+  //expression function(Không hỗ hoisting)
+  //input: keyWord : string
+  var keyWord = document.querySelector("#searchName").value; //a
+  keyWord = removeVietnameseTones(keyWord); // nguyễn => nguyen
+  //output: ?? []: arraySinhVien
+  var output = [];
+  //process:
+  //B1: duyệt qua từng phần tử của mảng
+  //B2: Kiểm tra tên có chứa từ khoá hay không
+  //B3: Nếu có thì đưa object đó vào output
+  //                  0        1         2
+  // employeeList = [{id,name},{id,name},{id,name}]
+  for (var index = 0; index < employeeList.length; index++) {
+    // nguyễn văn a.search('a') => 11
+    // nguyễn văn b.search('a') => -1
+    // nguyễn văn c.search('a') => -1
+    var nameTable = removeVietnameseTones(employeeList[index].name); // => nguyen van a.search(nguyen)
+    if (nameTable.search(keyWord) != -1 || employeeList[index].id == keyWord) {
+      //Tìm thấy => add object tại vị trí đó vào output
+      output.push(employeeList[index]);
+    }
+  }
+  console.log(output);
+  //Dùng output render ra table
+  updateRenderEmployees(output);
+};
+//Dom đến txtSearch cài đặt sự kiện oninput cho nó
+document.querySelector("#searchName").oninput = searchEmploy;
+
+function removeVietnameseTones(str) {
+  str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+  str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+  str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+  str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+  str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+  str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+  str = str.replace(/đ/g, "d");
+  str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+  str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+  str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+  str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+  str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+  str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+  str = str.replace(/Đ/g, "D");
+  // Some system encode vietnamese combining accent as individual utf-8 characters
+  // Một vài bộ encode coi các dấu mũ, dấu chữ như một kí tự riêng biệt nên thêm hai dòng này
+  str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // ̀ ́ ̃ ̉ ̣  huyền, sắc, ngã, hỏi, nặng
+  str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // ˆ ̆ ̛  Â, Ê, Ă, Ơ, Ư
+  // Remove extra spaces
+  // Bỏ các khoảng trắng liền nhau
+  str = str.replace(/ + /g, " ");
+  str = str.trim();
+  // Remove punctuations
+  // Bỏ dấu câu, kí tự đặc biệt
+  str = str.replace(
+    /!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g,
+    " "
+  );
+  return str;
+}
+// input: data local => output: data mới
+function mapData(employeeListLocal) {
+  var result = [];
+  for (var i = 0; i < employeeListLocal.length; i++) {
+    var currentemployee = employeeListLocal[i];
+    var copiedEmployee = new Employee(
+      currentemployee.account,
+      currentemployee.name,
+      currentemployee.email,
+      currentemployee.password,
+      currentemployee.workday,
+      currentemployee.hoursWork,
+      currentemployee.basicSalary,
+      currentemployee.position
+    );
+
+    result.push(copiedEmployee);
+  }
+
+  return result;
+}
+
+getLocalStorage();
