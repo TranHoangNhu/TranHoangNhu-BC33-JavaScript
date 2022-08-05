@@ -39,7 +39,6 @@ function Employee(
       ? "Nhân viên khá"
       : "Nhân viên trung bình";
   };
-
   // Cách viết hàm theo kiểu Arrow Function mà ko cần return
   // this.employRatingArrow = () =>
   //   this.hoursWork >= 192
