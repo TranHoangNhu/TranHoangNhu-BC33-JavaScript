@@ -1,5 +1,4 @@
 employeeList = [];
-
 function createEmployee() {
   // lấy thông tin từ input
   var account = document.getElementById("tknv").value;
@@ -7,9 +6,9 @@ function createEmployee() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
   var workday = document.getElementById("datepicker").value;
-  var basicSalary = +document.getElementById("luongCB").value;
+  var basicSalary = document.getElementById("luongCB").value;
   var position = document.getElementById("chucvu").value;
-  var hoursWork = +document.getElementById("gioLam").value;
+  var hoursWork = document.getElementById("gioLam").value;
 
   // check trùng id
   var index = findById(account);
@@ -28,6 +27,39 @@ function createEmployee() {
     basicSalary,
     position
   );
+  //Kiểm tra rỗng
+  var valid = 1;
+  valid &=
+    checkNullValid(employee.account.trim(), "#tknv", "Tài khoản nhân viên") &
+    checkNullValid(employee.name.trim(), "#name", "Tên nhân viên") &
+    checkNullValid(employee.email.trim(), "#email", "Email nhân viên") &
+    checkNullValid(
+      employee.password.trim(),
+      "#password",
+      "Mật khẩu nhân viên"
+    ) &
+    checkNullValid(
+      employee.basicSalary.trim(),
+      "#luongCB",
+      "Lương căn bản nhân viên"
+    ) &
+    checkNullValid(
+      employee.position.trim(),
+      "#chucvu",
+      "Vị trí chức vụ nhân viên"
+    ) &
+    checkNullValid(
+      employee.hoursWork.trim(), 
+      "#gioLam", 
+      "Giờ làm nhân viên"
+    );
+  console.log(valid);
+ 
+    valid &= checkValidAccount2(employee.account.trim(), "#tknv", "Tài khoản nhân viên");
+  
+  if (!valid) {
+    return;
+  }
   // bỏ đối tượng nhân viên vào ds
   employeeList.push(employee);
   // in danh sách nhân viên ra màn hình
@@ -47,24 +79,19 @@ function renderEmployees() {
                       <td>${currentemployee.email}</td>
                       <td>${currentemployee.workday}</td>
                       <td>${currentemployee.position}</td>
-                      <td>${currentemployee
-                        .totalSalary()
-                        .toLocaleString("vi", {
-                          style: "currency",
-                          currency: "VND",
-                        })}</td>
+                      <td>${currentemployee.totalSalary().toLocaleString("vi", {
+                        style: "currency",
+                        currency: "VND",
+                      })}</td>
                       <td>${currentemployee.employRating()}</td>
                       <td>
-                        <button class="btn btn-danger my-2" onclick="delEmploy('${
-                          currentemployee.account
-                        }')">Del</button>
+                        <button class="btn btn-danger my-2" onclick="delEmploy('${currentemployee.account}')">Del</button>
                         <button class="btn btn-primary my-2" onclick="editEmploy('${
                           currentemployee.account
-                        }')" data-toggle="modal" data-target="#myModal">Update</button>
+                        }')" data-toggle="modal" data-target="#updateModal">Update</button>
                       </td>
                   </tr>`;
   }
-
   document.getElementById("tableDanhSach").innerHTML = result;
 }
 function saveLocalStorage() {
@@ -98,23 +125,59 @@ function editEmploy(accountClick) {
       break;
     }
   }
-  // console.log(EmployEdit);
+  var valid = 1;
+  valid &=
+    checkNullValid(
+      EmployEdit.account.trim(),
+      "#update_tknv",
+      "Tài khoản nhân viên"
+    ) &
+    checkNullValid(EmployEdit.name.trim(), "#update_name", "Tên nhân viên") &
+    checkNullValid(
+      EmployEdit.email.trim(),
+      "#update_email",
+      "Email nhân viên"
+    ) &
+    checkNullValid(
+      EmployEdit.password.trim(),
+      "#update_password",
+      "Mật khẩu nhân viên"
+    ) &
+    checkNullValid(
+      EmployEdit.basicSalary.trim(),
+      "#update_luongCB",
+      "Lương căn bản nhân viên"
+    ) &
+    checkNullValid(
+      EmployEdit.position.trim(),
+      "#update_chucvu",
+      "Vị trí chức vụ nhân viên"
+    ) &
+    checkNullValid(
+      EmployEdit.hoursWork.trim(),
+      "#update_gioLam",
+      "Giờ làm nhân viên"
+    );
+  console.log(valid);
+  if (!valid) {
+    return;
+  }
+
   if (EmployEdit !== null) {
     //Đưa dữ liệu lên các control input
-    document.querySelector("#tknv").value = EmployEdit.account;
-    document.querySelector("#name").value = EmployEdit.name;
-    document.querySelector("#email").value = EmployEdit.email;
-    document.querySelector("#password").value = EmployEdit.password;
-    document.querySelector("#datepicker").value = EmployEdit.workday;
-    document.querySelector("#luongCB").value = EmployEdit.basicSalary;
-    document.querySelector("#chucvu").value = EmployEdit.position;
-    document.querySelector("#gioLam").value = EmployEdit.hoursWork;
+    document.querySelector("#update_tknv").value = EmployEdit.account;
+    document.querySelector("#update_name").value = EmployEdit.name;
+    document.querySelector("#update_email").value = EmployEdit.email;
+    document.querySelector("#update_password").value = EmployEdit.password;
+    document.querySelector("#update_datepicker").value = EmployEdit.workday;
+    document.querySelector("#update_luongCB").value = EmployEdit.basicSalary;
+    document.querySelector("#update_chucvu").value = EmployEdit.position;
+    document.querySelector("#update_gioLam").value = EmployEdit.hoursWork;
   }
 }
 function delEmploy(idClick) {
   // input id: giá trị người dùng click
   //output: index    //                 0   1   2
-  var indexDel = -1; // employeeList = [{1},{2},{3}] employeeList[2].name ='abc';
   for (var index = employeeList.length - 1; index >= 0; index--) {
     //Mỗi lần duyệt lấy ra 1 phần tử của mảng so với input người dùng click
     if (employeeList[index].account == idClick) {
@@ -130,18 +193,19 @@ function delEmploy(idClick) {
   //   //Gọi lại hàm render table mới
   //   //Lưu danh sách sau khi xoá vào storage
   // }
+  saveLocalStorage();
 }
 //Khi người dùng thay đổi sau đó bấm nút update
 function updateEmploy() {
   var EmUpdate = new Employee();
-  EmUpdate.account = document.querySelector("#tknv").value;
-  EmUpdate.name = document.querySelector("#name").value;
-  EmUpdate.email = document.querySelector("#email").value;
-  EmUpdate.password = document.querySelector("#password").value;
-  EmUpdate.workday = document.querySelector("#datepicker").value;
-  EmUpdate.basicSalary = document.querySelector("#luongCB").value;
-  EmUpdate.position = document.querySelector("#chucvu").value;
-  EmUpdate.hoursWork = document.querySelector("#gioLam").value;
+  EmUpdate.account = document.querySelector("#update_tknv").value;
+  EmUpdate.name = document.querySelector("#update_name").value;
+  EmUpdate.email = document.querySelector("#update_email").value;
+  EmUpdate.password = document.querySelector("#update_password").value;
+  EmUpdate.workday = document.querySelector("#update_datepicker").value;
+  EmUpdate.basicSalary = document.querySelector("#update_luongCB").value;
+  EmUpdate.position = document.querySelector("#update_chucvu").value;
+  EmUpdate.hoursWork = document.querySelector("#update_gioLam").value;
   console.log(EmUpdate);
   //Duyệt qua từng object trong employeeList tìm ra vị trí của object cần thay đổi
   //                 0      1      2
@@ -248,7 +312,10 @@ var searchEmploy = function () {
     //     : "Nhân viên trung bình";
     // };
     var nameTable = removeVietnameseTones(employeeList[index].employRating()); // => nguyen van a.search(nguyen)
-    if (nameTable.search(keyWord) != -1 || employeeList[index].account == keyWord) {
+    if (
+      nameTable.search(keyWord) != -1 ||
+      employeeList[index].account == keyWord
+    ) {
       //Tìm thấy => add object tại vị trí đó vào output
       output.push(employeeList[index]);
     }

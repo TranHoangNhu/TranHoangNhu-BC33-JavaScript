@@ -19,14 +19,14 @@ function Employee(
   //  Phuơng Thức Tính Lương Dựa Trên Chức Vụ
   this.salaryForPosition = function () {
     return this.position === "Giám Đốc"
-      ? +(this.basicSalary * 3)
+      ? +(Number(this.basicSalary) * 3)
       : this.position === "Trưởng Phòng"
-      ? +(this.basicSalary * 2)
-      : +(this.basicSalary * 1);
+      ? +(Number(this.basicSalary) * 2)
+      : +(Number(this.basicSalary) * 1);
   };
 //  Phuơng Thức Tính Tổng Lương
   this.totalSalary = function () {
-    return this.salaryForPosition() * this.hoursWork / 240;
+    return this.salaryForPosition() * Number(this.hoursWork) / 240;
     //chia 240 dựa theo quy tắc 1 ngày làm 8 tiếng, 1 tháng có 30 ngày nên 1 tháng suy ra làm max được 240 tiếng 
   };
   //  Phuơng Thức Xếp Loại Nhân Viên
