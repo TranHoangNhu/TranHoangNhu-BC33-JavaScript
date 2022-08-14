@@ -30,33 +30,39 @@ function createEmployee() {
   //Kiểm tra rỗng
   var valid = 1;
   valid &=
-    checkNullValid(employee.account.trim(), "#tknv", "Tài khoản nhân viên") &
-    checkNullValid(employee.name.trim(), "#name", "Tên nhân viên") &
-    checkNullValid(employee.email.trim(), "#email", "Email nhân viên") &
+    checkNullValid(employee.account, "#tbTKNV", "Tài khoản nhân viên") &
+    checkNullValid(employee.name, "#tbTen", "Tên nhân viên") &
+    checkNullValid(employee.email, "#tbEmail", "Email nhân viên") &
     checkNullValid(
-      employee.password.trim(),
-      "#password",
+      employee.password,
+      "#tbMatKhau",
       "Mật khẩu nhân viên"
     ) &
     checkNullValid(
-      employee.basicSalary.trim(),
-      "#luongCB",
+      employee.basicSalary,
+      "#tbLuongCB",
       "Lương căn bản nhân viên"
     ) &
     checkNullValid(
-      employee.position.trim(),
-      "#chucvu",
+      employee.position,
+      "#tbChucVu",
       "Vị trí chức vụ nhân viên"
     ) &
     checkNullValid(
-      employee.hoursWork.trim(), 
-      "#gioLam", 
+      employee.hoursWork, 
+      "#tbGiolam", 
       "Giờ làm nhân viên"
     );
-  console.log(valid);
- 
-    valid &= checkValidAccount2(employee.account.trim(), "#tknv", "Tài khoản nhân viên");
-  
+
+    valid &= checkValidAccount(employee.account, "#tbTKNV", "Tài khoản nhân viên") &
+    checkValidName(employee.name, "#tbTen", "Họ tên nhân viên") &
+    checkValidEmail(employee.email, "#tbEmail", "Email nhân viên") &
+    checkValidPassWord(employee.password, "#tbMatKhau", "Mật khẩu nhân viên") &
+    checkValidDate(employee.workday, "#tbNgay", "Ngày bắt đầu nhân viên") &
+    checkValidBasicSalary(employee.basicSalary, "#tbLuongCB", "Lương cơ bản nhân viên") &
+    checkValidPosition(employee.position, "#tbChucVu", "Vui lòng chọn 1 trong 3") &
+    checkValidHoursWork(employee.hoursWork, "#tbGiolam", "Giờ làm nhân viên");
+    console.log(valid);
   if (!valid) {
     return;
   }
@@ -128,33 +134,33 @@ function editEmploy(accountClick) {
   var valid = 1;
   valid &=
     checkNullValid(
-      EmployEdit.account.trim(),
+      EmployEdit.account,
       "#update_tknv",
       "Tài khoản nhân viên"
     ) &
-    checkNullValid(EmployEdit.name.trim(), "#update_name", "Tên nhân viên") &
+    checkNullValid(EmployEdit.name, "#update_name", "Tên nhân viên") &
     checkNullValid(
-      EmployEdit.email.trim(),
+      EmployEdit.email,
       "#update_email",
       "Email nhân viên"
     ) &
     checkNullValid(
-      EmployEdit.password.trim(),
+      EmployEdit.password,
       "#update_password",
       "Mật khẩu nhân viên"
     ) &
     checkNullValid(
-      EmployEdit.basicSalary.trim(),
+      EmployEdit.basicSalary,
       "#update_luongCB",
       "Lương căn bản nhân viên"
     ) &
     checkNullValid(
-      EmployEdit.position.trim(),
+      EmployEdit.position,
       "#update_chucvu",
       "Vị trí chức vụ nhân viên"
     ) &
     checkNullValid(
-      EmployEdit.hoursWork.trim(),
+      EmployEdit.hoursWork,
       "#update_gioLam",
       "Giờ làm nhân viên"
     );
@@ -349,7 +355,7 @@ function removeVietnameseTones(str) {
   // Remove extra spaces
   // Bỏ các khoảng trắng liền nhau
   str = str.replace(/ + /g, " ");
-  str = str.trim();
+  str = str;
   // Remove punctuations
   // Bỏ dấu câu, kí tự đặc biệt
   str = str.replace(
