@@ -27,7 +27,7 @@ function checkValidAccount(value, selectorError, name) {
 function checkValidName(value, selectorError, name) {
   var spanValid = document.querySelector(selectorError);
   spanValid.style.display = "block";
-  var regex = /^[A-Za-z]+$/;
+  var regex = /^(([a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\s\'ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]))*$/;
   if (regex.test(value)) {
     spanValid.innerHTML = "";
     return true;
@@ -92,23 +92,24 @@ function checkValidBasicSalary(value, selectorError, name) {
   return false;
 }
 
-// function checkValidPosition(value, selectorError, name) {
-//   var spanValid = document.querySelector(selectorError);
-//   spanValid.style.display = "block";
-//   if (spanValid.value === "Ch "){
-//     spanValid.innerHTML = name + " (Sếp, Trưởng Phòng, Nhân Viên)!";
-//     spanValid.style.color = "#CD950C";
-//     return false;
-//   }
-//   spanValid.innerHTML = "";
-//   return true;
-// }
+function checkValidPosition(selectorError, name) {
+  var checkValid = document.querySelector('#chucvu');
+  var spanValid = document.querySelector(selectorError);
+  spanValid.style.display = "block";
+  if (checkValid.value === 'Chọn chức vụ'){
+    spanValid.innerHTML = name + " (Sếp, Trưởng Phòng, Nhân Viên)!";
+    spanValid.style.color = "#CD950C";
+    return false;
+  }s
+  spanValid.innerHTML = "";
+  return true;
+}
 
 function checkValidHoursWork(value, selectorError, name) {
   var spanValid = document.querySelector(selectorError);
   spanValid.style.display = "block";
   var regex = /^[0-9]+$/;
-  if (regex.test(value) && value >= 80 && value <= 200) {
+  if ((regex.test(value) === true) && (value >= 80) && (value <= 200)) {
     spanValid.innerHTML = "";
     return true;
   }

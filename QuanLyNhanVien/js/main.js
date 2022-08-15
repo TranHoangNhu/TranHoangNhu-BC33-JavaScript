@@ -60,7 +60,7 @@ function createEmployee() {
     checkValidPassWord(employee.password, "#tbMatKhau", "Mật khẩu nhân viên") &
     checkValidDate(employee.workday, "#tbNgay", "Ngày bắt đầu nhân viên") &
     checkValidBasicSalary(employee.basicSalary, "#tbLuongCB", "Lương cơ bản nhân viên") &
-    checkValidPosition(employee.position, "#tbChucVu", "Vui lòng chọn 1 trong 3") &
+    checkValidPosition("#tbChucVu", "Vui lòng chọn 1 trong 3") &
     checkValidHoursWork(employee.hoursWork, "#tbGiolam", "Giờ làm nhân viên");
     console.log(valid);
   if (!valid) {
