@@ -100,7 +100,7 @@ function checkValidPosition(selectorError, name) {
     spanValid.innerHTML = name + " (Sếp, Trưởng Phòng, Nhân Viên)!";
     spanValid.style.color = "#CD950C";
     return false;
-  }s
+  }
   spanValid.innerHTML = "";
   return true;
 }
