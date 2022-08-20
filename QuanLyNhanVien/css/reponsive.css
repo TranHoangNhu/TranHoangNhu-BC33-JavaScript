@@ -1,0 +1,8 @@
+@media screen and (max-width: 640px) {
+    .wrapper{
+        display: none;
+    }
+    .display_mobileApp{
+        display: block !important;
+    }
+  }
